@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>L'Éclat Praliné - Pâtisserie Artisanale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Dancing Script', cursive;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(255,192,203,0.6), rgba(255,235,205,0.6));
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            border-radius: 50px;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B6B, #FFD93D);
+        }
+        .hover-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-image {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+    <meta name="description" content="Découvrez l'Éclat Praliné, une patisserie artisanale haut de gamme, parfait pour vos évenements, ou toute occasion. Découvrez mes plus belles créations !">
+</head>
+<body class="bg-gray-50">
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50 px-8 py-4">
+    <div class="flex justify-between items-center">
+        <h1 class="text-4xl font-bold text-[#c32752] ml-8">L'Éclat Praliné</h1>
+        <input type="checkbox" id="nav-toggle" class="hidden peer">
+        <label for="nav-toggle" class="md:hidden cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </label>
+        <div class="hidden md:flex space-x-6">
+            <a href="#accueil" class="hover:text-[#c32752] transition">Accueil</a>
+            <a href="#about" class="hover:text-[#c32752] transition">À Propos</a>
+            <a href="#creations" class="hover:text-[#c32752] transition">Créations</a>
+            <a href="#contact" class="hover:text-[#c32752] transition">Contact</a>
+        </div>
+    </div>
+    <div class="mobile-menu hidden peer-checked:block md:hidden absolute top-full left-0 right-0 bg-white shadow-md transition-all duration-300">
+        <div class="flex flex-col space-y-4 px-8 py-4">
+            <a href="#accueil" class="hover:text-pink-600 transition">Accueil</a>
+            <a href="#about" class="hover:text-pink-600 transition">À Propos</a>
+            <a href="#creations" class="hover:text-pink-600 transition">Créations</a>
+            <a href="#contact" class="hover:text-pink-600 transition">Contact</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById('nav-toggle').addEventListener('change', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            if (this.checked) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</nav>
+
+    <section id="accueil" class="hero-bg min-h-screen flex items-center justify-center pt-20 md:pt-16 sm:pt-12">
+    <div class="container mx-auto px-4 md:px-6 sm:px-4">
+        <div class="flex flex-col lg:flex-row items-center">
+            <div class="w-full lg:w-1/2 lg:pr-12 flex flex-col text-center mb-8 lg:mb-0">
+                <img src="https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/19e72c5b71ea7c52.PNG" alt="L'Éclat Praliné" class="h-[180px] rounded-lg mx-auto mb-8 hover:scale-105 transition-transform duration-300 shadow-md">
+                <p class="text-lg md:text-xl text-gray-700 mb-6 px-4 lg:px-0 animate__animated animate__fadeIn">
+                    Une histoire de passion, de tradition et d'amour pour la pâtisserie française. Chaque création raconte une histoire, chaque gâteau est un hommage.
+                </p>
+                <div class="bg-white/80 backdrop-blur-sm p-4 rounded-lg shadow-sm mb-6 border-l-4 border-[#c32752] animate__animated animate__fadeIn">
+                    <p class="text-gray-800 text-sm md:text-base italic">
+                        <span class="font-semibold">À noter :</span> Toutes mes pâtisseries sont disponibles uniquement sur commande. Je n'ai pas de boutique physique, ce qui me permet de créer chaque pièce avec une attention particulière selon vos souhaits.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#creations" class="bg-[#c32752] text-white px-6 py-3 rounded-full transition text-center hover:bg-opacity-90 transform hover:-translate-y-1 duration-300 shadow-md">
+                        Découvrir mes Créations
+                    </a>
+                    <a href="#contact" class="border-2 border-[#c32752] text-[#c32752] px-6 py-3 rounded-full transition text-center hover:bg-[#c32752] hover:bg-opacity-10 transform hover:-translate-y-1 duration-300">
+                        Me Contacter
+                    </a>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 px-4 lg:px-0">
+                <div class="relative">
+                    <img src="https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/23c4197c8cb2e781.jpeg" alt="Alexia Ferreira" class="rounded-full shadow-2xl floating-image mx-auto max-w-[80%] lg:max-w-full hover:shadow-[0_20px_50px_rgba(195,39,82,0.3)] transition-all duration-500">
+                    <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white py-2 px-6 rounded-full shadow-lg hidden md:block">
+                        <span class="text-[#c32752] font-medium">Pâtisseries sur mesure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="about" class="bg-gradient-to-t from-white to-pink-50 py-20 md:py-32 overflow-hidden">
+    <div class="container mx-auto px-4 md:px-8 relative">
+        <!-- Decorative elements -->
+        <div class="hidden md:block absolute top-0 left-0 w-64 h-64 bg-pink-200 rounded-full opacity-20 transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="hidden md:block absolute bottom-0 right-0 w-80 h-80 bg-pink-300 rounded-full opacity-20 transform translate-x-1/3 translate-y-1/3"></div>
+        
+        <div class="flex justify-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold section-title text-center inline-block relative">
+                Mon Histoire
+            </h2>
+        </div>
+        
+        <div class="flex flex-col lg:flex-row items-center gap-16 relative z-10">
+            <div class="w-full lg:w-1/2 transform transition-all duration-500 hover:scale-[1.02]">
+                <div class="bg-white/90 backdrop-blur-sm p-8 md:p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-pink-100">
+                    <div class="flex items-center mb-8">
+                        <div class="w-1.5 h-16 bg-gradient-to-b from-[#c32752] to-pink-300 rounded-full mr-4"></div>
+                        <h3 class="text-2xl md:text-3xl font-semibold text-gray-800">Passion &amp; Héritage</h3>
+                    </div>
+                    
+                    <p class="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
+                        Je suis <span class="font-semibold text-[#c32752]">Alexia Ferreira</span>, une jeune pâtissière de 22 ans originaire de Bordeaux. Ma passion pour la pâtisserie est née des moments précieux partagés avec ma mère, qui m'a transmis l'art et l'âme de la création culinaire.
+                    </p>
+                    <p class="text-base md:text-lg text-gray-700 mb-8 leading-relaxed">
+                        Après son décès, j'ai trouvé dans la pâtisserie un moyen de lui rendre hommage, transformant chaque gâteau en un souvenir vivant et délicieux.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-10">
+                        <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300 shadow-md hover:shadow-lg group">
+                            <div class="bg-white/60 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-white transition-colors duration-300">
+                                <h3 class="text-2xl md:text-3xl font-bold text-[#c32752]">100%</h3>
+                            </div>
+                            <p class="text-base font-medium text-[#c32752]">Artisanal</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300 shadow-md hover:shadow-lg group">
+                            <div class="bg-white/60 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-white transition-colors duration-300">
+                                <h3 class="text-xl md:text-2xl font-bold text-[#c32752]">Bordeaux</h3>
+                            </div>
+                            <p class="text-base font-medium text-[#c32752]">Origine</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-3 md:gap-4 justify-start">
+                        <span class="px-4 py-2 bg-gradient-to-r from-pink-200 to-pink-300 text-[#c32752] rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-shadow duration-300 transform hover:-translate-y-1 hover:scale-105 transition-transform duration-300">Pâtisserie créative</span>
+                        <span class="px-4 py-2 bg-gradient-to-r from-pink-200 to-pink-300 text-[#c32752] rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-shadow duration-300 transform hover:-translate-y-1 hover:scale-105 transition-transform duration-300">Fait maison</span>
+                        <span class="px-4 py-2 bg-gradient-to-r from-pink-200 to-pink-300 text-[#c32752] rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-shadow duration-300 transform hover:-translate-y-1 hover:scale-105 transition-transform duration-300">Produits locaux</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-1/2 mt-12 lg:mt-0">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-pink-400 to-[#c32752] rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1519733949-b7dfe6268abe?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHw3fHxwYXN0cnklMjBjaGVmfGVufDB8MHx8fDE3Mzc4MTYyNDR8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Atelier de Pâtisserie" class="rounded-2xl shadow-2xl w-full object-cover h-[450px] transform transition-transform duration-500 group-hover:scale-[1.02]">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-xl transform rotate-3 group-hover:rotate-0 transition-transform duration-300">
+                            <p class="text-[#c32752] font-semibold flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                Passion &amp; Créativité
+                            </p>
+                        </div>
+                        
+                        <div class="absolute top-6 left-6 bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-lg transform -rotate-2 group-hover:rotate-0 transition-transform duration-300">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-[#c32752] rounded-full animate-pulse"></div>
+                                <p class="text-gray-800 font-medium">Créations uniques</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="creations" class="bg-gray-50 py-20 hero-bg">
+        <div class="container mx-auto px-2">
+            <div class="flex justify-center mb-12">
+                <h2 class="text-4xl font-bold section-title text-center inline-block">Mes Créations</h2>
+            </div>
+            <div x-data="{
+    imageGalleryOpened: false,
+    imageGalleryActiveUrl: null,
+    imageGalleryImageIndex: null,
+    imageGallery: [
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/77863fc93d4d7b21.jpeg',
+            'alt': 'Flan façon crème brulée',
+            'name': 'Flan façon crème brulée',
+            'price': 'À partir de 25€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/8df5865c2760187f.jpeg',
+            'alt': 'Entremet façon rocher',
+            'name': 'Entremet façon rocher',
+            'price': 'À partir de 35€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/3b2441ce82d1e250.jpeg',
+            'alt': 'Layer Cake',
+            'name': 'Layer Cake',
+            'price': 'À partir de 80€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/c63c77d33f6cde04.jpeg',
+            'alt': 'Macarons',
+            'name': 'Macarons (minimum 12)',
+            'price': 'À partir de 22€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/dea1b7de25b7da2f.jpeg',
+            'alt': 'Fraisier',
+            'name': 'Fraisier',
+            'price': 'À partir de 40€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/b79643c0008a1e74.jpeg',
+            'alt': 'Entremet chocolat framboise',
+            'name': 'Entremet chocolat framboise (individuel - minimum 4)',
+            'price': 'À partir de 32€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/9fc0e04c99fe7f0b.jpeg',
+            'alt': 'Cookies peanut butter',
+            'name': 'Cookies peanut butter (minimum 6)',
+            'price': 'À partir de 24€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/e19302f3fa39a2a6.jpeg',
+            'alt': 'Paris-Brest',
+            'name': 'Paris-Brest',
+            'price': 'À partir de 25€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/a27d8f094a687539.jpeg',
+            'alt': 'Entremet praliné citron',
+            'name': 'Entremet praliné citron',
+            'price': 'À partir de 35€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/bf83beef3516e567.jpeg',
+            'alt': 'Layer cake',
+            'name': 'Layer cake',
+            'price': 'À partir de 80€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/b9c9b0137312c4d6.jpeg',
+            'alt': 'Entremet pomme caramel',
+            'name': 'Entremet pomme caramel (individuel - minimum 4)',
+            'price': 'À partir de 32€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/689f271b5abf3089.jpeg',
+            'alt': 'Saint-Honoré mûre pavot',
+            'name': 'Saint-Honoré mûre pavot',
+              'price': 'À partir de 25€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/1bc90d984daed0c3.jpeg',
+            'alt': 'Cake design',
+            'name': 'Cake design (tout évenements)',
+            'price': 'À partir de 80€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/955f4feee4fc08cb.jpeg',
+            'alt': 'Entremet poire chocolat',
+            'name': 'Entremet poire chocolat',
+            'price': 'À partir de 35€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/f297399904b043a8.jpeg',
+            'alt': 'Number cake fruits rouges',
+            'name': 'Number cake fruits rouges',
+            'price': 'À partir de 40€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/8e37224bb079015d.jpeg',
+            'alt': 'Flan',
+            'name': 'Flan',
+            'price': 'À partir de 25€'
+        },
+        {
+            'photo': 'https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/images/bd09427d53363562.jpeg',
+            'alt': 'Brioche',
+            'name': 'Brioche',
+            'price': 'À partir de 20€'
+        },
+    ],
+    imageGalleryOpen(event) {
+        this.imageGalleryImageIndex = event.target.dataset.index;
+        this.imageGalleryActiveUrl = event.target.src;
+        this.imageGalleryOpened = true;
+    },
+    imageGalleryClose() {
+        this.imageGalleryOpened = false;
+        setTimeout(() =&gt; this.imageGalleryActiveUrl = null, 300);
+    },
+    imageGalleryNext() {
+        this.imageGalleryImageIndex = (this.imageGalleryImageIndex == this.imageGallery.length) ? 1 : (parseInt(this.imageGalleryImageIndex) + 1);
+        const images = this.$refs.gallery.querySelectorAll('img');
+        images.forEach(image =&gt; {
+            if (image.getAttribute('data-index') == this.imageGalleryImageIndex) {
+                this.imageGalleryActiveUrl = image.src;
+            }
+        });
+    },
+    imageGalleryPrev() {
+        this.imageGalleryImageIndex = (this.imageGalleryImageIndex == 1) ? this.imageGallery.length : (parseInt(this.imageGalleryImageIndex) - 1);
+        const images = this.$refs.gallery.querySelectorAll('img');
+        images.forEach(image =&gt; {
+            if (image.getAttribute('data-index') == this.imageGalleryImageIndex) {
+                this.imageGalleryActiveUrl = image.src;
+            }
+        });
+    }
+}" @image-gallery-next.window="imageGalleryNext()" @image-gallery-prev.window="imageGalleryPrev()" @keyup.right.window="imageGalleryNext();" @keyup.left.window="imageGalleryPrev();" class="w-full p-2 select-none py-4">
+  <div class="max-w-6xl mx-auto duration-1000 delay-300 opacity-0 select-none ease animate-fade-in-view" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
+    <ul x-ref="gallery" id="gallery" class="grid grid-cols-2 gap-5 lg:grid-cols-5">
+      <template x-for="(image, index) in imageGallery">
+        <li class="relative group">
+          <img x-on:click="imageGalleryOpen" :src="image.photo" :alt="image.alt" :data-index="index+1" class="object-cover select-none w-full h-auto bg-gray-200 rounded cursor-zoom-in aspect-[5/6] lg:aspect-[2/3] xl:aspect-[3/4]">
+          <div class="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p x-text="image.name" class="font-semibold"></p>
+            <p x-text="image.price" class="text-sm"></p>
+          </div>
+        </li>
+      </template>
+    </ul>
+  </div>
+  <template x-teleport="body">
+    <div x-show="imageGalleryOpened" x-transition:enter="transition ease-in-out duration-300" x-transition:enter-start="opacity-0" x-transition:leave="transition ease-in-in duration-300" x-transition:leave-end="opacity-0" @click="imageGalleryClose" @keydown.window.escape="imageGalleryClose" x-trap.inert.noscroll="imageGalleryOpened" class="fixed inset-0 z-[99] flex items-center justify-center bg-black bg-opacity-90 select-none cursor-zoom-out" x-cloak="">
+      <div class="relative flex flex-col items-center justify-center w-11/12 xl:w-4/5 h-11/12">
+        <div @click="$event.stopPropagation(); $dispatch('image-gallery-prev')" class="absolute left-0 flex items-center justify-center text-white translate-x-10 rounded-full cursor-pointer xl:-translate-x-24 2xl:-translate-x-32 bg-white/10 w-14 h-14 hover:bg-white/20">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+          </svg>
+        </div>
+        <div class="w-full h-full aspect-[16/9] flex items-center justify-center">
+          <img x-show="imageGalleryOpened" x-transition:enter="transition ease-in-out duration-300" x-transition:enter-start="opacity-0 transform scale-50" x-transition:leave="transition ease-in-in duration-300" x-transition:leave-end="opacity-0 transform scale-50" class="object-contain object-center w-full h-full select-none cursor-zoom-out" :src="imageGalleryActiveUrl" alt="">
+        </div>
+        <div class="text-white text-center mt-4">
+          <p class="text-xl font-semibold" x-text="imageGallery[imageGalleryImageIndex-1].name"></p>
+          <p class="text-lg" x-text="imageGallery[imageGalleryImageIndex-1].price"></p>
+        </div>
+        <div @click="$event.stopPropagation(); $dispatch('image-gallery-next');" class="absolute right-0 flex items-center justify-center text-white -translate-x-10 rounded-full cursor-pointer xl:translate-x-24 2xl:translate-x-32 bg-white/10 w-14 h-14 hover:bg-white/20">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+        </div>
+    </section>
+
+    <section class="bg-gradient-to-t from-white to-pink-50 py-16 xs:px-8 md:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex justify-center mb-12">
+            <h2 class="text-4xl font-bold section-title text-center inline-block">Mais encore...</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start px-4">
+            <div class="relative overflow-hidden rounded-2xl shadow-xl md:col-span-1">
+                <video class="w-full h-full object-cover" autoplay="" loop="" muted="" playsinline="">
+                    <source src="https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/videos/383163f46d39d601.mov" type="video/mp4">
+                </video>
+                <div class="p-4 bg-white">
+                    <h3 class="text-xl font-semibold mb-2">Tarte aux pommes</h3>
+                    <p class="text-lg font-bold text-gray-700">À partir de 35€</p>
+                </div>
+            </div>
+            
+            <div class="relative overflow-hidden rounded-2xl shadow-xl md:col-span-1">
+                <video class="w-full h-full object-cover" autoplay="" loop="" muted="" playsinline="">
+                    <source src="https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/videos/a9983fd25cd312f7.mov" type="video/mp4">
+                </video>
+                <div class="p-4 bg-white">
+                    <h3 class="text-xl font-semibold mb-2">Buche cassis pomme (8 parts)</h3>
+                    <p class="text-lg font-bold text-gray-700">À partir de 40€</p>
+                </div>
+            </div>
+            
+            <div class="relative overflow-hidden rounded-2xl max-w-50% shadow-xl md:col-span-2 lg:col-span-1">
+                <video class="w-full h-full object-cover" autoplay="" loop="" muted="" playsinline="">
+                    <source src="https://d1olmvoet3matb.cloudfront.net/zRdDpIev2o/videos/562caaa1e54ba7c6.mov" type="video/mp4">
+                </video>
+                <div class="p-4 bg-white">
+                    <h3 class="text-xl font-semibold mb-2">Entremet pomme caramel (1 part - 4 minimum)</h3>
+                    <p class="text-lg font-bold text-gray-700">À partir de 32€</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="hero-bg py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex justify-center mb-12">
+            <h2 class="text-4xl font-bold section-title text-center inline-block">Témoignages de nos clients</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-pink-50 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <p class="text-gray-700 italic mb-4">"Les pâtisseries de L'Éclat Praliné sont tout simplement divines ! Le Layer Cake est une véritable explosion de saveurs en bouche. Un vrai moment de bonheur !"</p>
+                <p class="text-[#c32752] font-semibold">Sophie M.</p>
+            </div>
+            
+            <div class="bg-pink-50 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <p class="text-gray-700 italic mb-4">"Chaque création est un véritable chef-d'œuvre. La finesse des détails et l'équilibre des saveurs sont remarquables. Je recommande particulièrement les entremets !"</p>
+                <p class="text-[#c32752] font-semibold">Thomas L.</p>
+            </div>
+
+            <div class="bg-pink-50 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <p class="text-gray-700 italic mb-4">"J'ai commandé un gâteau pour l'anniversaire de ma fille, c'était magnifique et délicieux ! Le service est impeccable et les créations sont uniques."</p>
+                <p class="text-[#c32752] font-semibold">Marie P.</p>
+            </div>
+
+            <div class="bg-pink-50 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <p class="text-gray-700 italic mb-4">"Une adresse incontournable pour les amateurs de pâtisserie fine. Les macarons sont les meilleurs que j'ai jamais goûtés !"</p>
+                <p class="text-[#c32752] font-semibold">Alexandre B.</p>
+            </div>
+
+            <div class="bg-pink-50 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <p class="text-gray-700 italic mb-4">"La qualité des produits est exceptionnelle. On sent la passion et le savoir-faire dans chaque création. Un grand bravo pour ce travail d'excellence !"</p>
+                <p class="text-[#c32752] font-semibold">Claire D.</p>
+            </div>
+
+            <div class="bg-pink-50 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <p class="text-gray-700 italic mb-4">"Des pâtisseries d'exception qui ravissent les papilles. Le rapport qualité-prix est excellent. Je suis une cliente fidèle et comblée !"</p>
+                <p class="text-[#c32752] font-semibold">Manon L.</p>
+            </div>
+        </div>
+    </div>
+</section><section id="contact" class="bg-gradient-to-t from-white to-pink-50 py-20">
+    <div class="container mx-auto px-8">
+        <div class="flex justify-center mb-12">
+            <h2 class="text-4xl font-bold section-title text-center inline-block">Contactez-moi</h2>
+        </div>
+        <div class="max-w-2xl mx-auto bg-pink-100 p-12 rounded-lg">
+    <form class="space-y-6" id="contactForm" onsubmit="sendEmail(event)">
+        <div class="flex justify-center">
+            <input type="text" id="name" placeholder="Nom" class="w-1/2 p-3 rounded-lg border border-pink-300" required="">
+        </div>
+        <textarea id="message" placeholder="Votre message" class="w-full p-3 rounded-lg border border-pink-300 h-40" required=""></textarea>
+        <button type="submit" class="w-full bg-[#c32752] text-white py-4 rounded-lg transition">
+            Envoyer le Message
+        </button>
+    </form>
+    <script>
+        function sendEmail(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const mailtoLink = `mailto:alexia.ferreira0903@gmail.com?subject=Éclat Praliné (site web)&body=Nom: ${encodeURIComponent(name)}%0D%0A%0D%0A${encodeURIComponent(message)}`;
+            window.location.href = mailtoLink;
+        }
+    </script>
+</div>
+    </div>
+</section>
+
+    <footer class="bg-[#c32752] text-white py-8" modif-id="selected-element">
+    <div class="container mx-auto px-8 text-center">
+        <div class="flex justify-center space-x-6 mb-6">
+            <a href="https://www.instagram.com/alex_patissiere?igsh=MXA3cXNyNXAya25xZA%3D%3D&amp;utm_source=qr" target="_blank" class="text-2xl"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/15s37RRGqk/?mibextid=wwXIfr" target="_blank" class="text-2xl"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@alexpatissiere?_t=ZN-8tMhnK2KjJ8&amp;_r=1" target="_blank" class="text-2xl"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p>© 2025 L'Éclat Praliné. Tous droits réservés.</p>
+    </div>
+</footer>
+</body>
+</html>
